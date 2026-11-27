@@ -13,16 +13,7 @@ jobs:
           distribution: temurin
           java-version: 17
       - uses: gradle/actions/setup-gradle@v4
-      - name: Build
-        run: |
-          chmod +x gradlew
-          ./gradlew assembleDebug --console=plain > build.log 2>&1 || {
-            echo "=========== ERRORS ==========="
-            grep -n -E "error:|What went wrong|Execution failed|e: file|AAPT|FAILED" -A4 build.log | head -80
-            echo "=========== LAST 40 LINES ==========="
-            tail -40 build.log
-            exit 1
-          }
+      - run: chmod +x gradlew && ./gradlew assembleDebug --stacktrace
       - uses: actions/upload-artifact@v4
         with:
           name: MAX-STUDIO-debug-apk
