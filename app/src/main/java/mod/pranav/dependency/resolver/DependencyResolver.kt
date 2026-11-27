@@ -51,11 +51,11 @@ class DependencyResolver(
     }
 
     private val downloadPath: String =
-        FileUtil.getExternalStorageDir() + "/.sketchware/libs/local_libs"
+        FileUtil.getExternalStorageDir() + "/.maxstudio/libs/local_libs"
 
     private val repositoriesJson = Paths.get(
         Environment.getExternalStorageDirectory().absolutePath,
-        ".sketchware",
+        ".maxstudio",
         "libs",
         "repositories.json"
     )

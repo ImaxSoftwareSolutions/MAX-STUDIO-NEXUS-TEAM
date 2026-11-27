@@ -932,12 +932,12 @@ public class OldResourceIdMapper {
             case 2131166160 -> R.drawable.siren_48;
             case 2131166161 -> R.drawable.sketch_app_icon;
             case 2131166162 -> R.drawable.sketchbear_head;
-            case 2131166163 -> R.drawable.sketchware_48_white;
-            case 2131166164 -> R.drawable.sketchware_bi;
-            case 2131166165 -> R.drawable.sketchware_bi_blue;
-            case 2131166166 -> R.drawable.sketchware_bi_gray;
-            case 2131166167 -> R.drawable.sketchware_noti_icon;
-            case 2131166168 -> R.drawable.sketchware_welcome;
+            case 2131166163 -> R.drawable.maxstudio_48_white;
+            case 2131166164 -> R.drawable.maxstudio_bi;
+            case 2131166165 -> R.drawable.maxstudio_bi_blue;
+            case 2131166166 -> R.drawable.maxstudio_bi_gray;
+            case 2131166167 -> R.drawable.maxstudio_noti_icon;
+            case 2131166168 -> R.drawable.maxstudio_welcome;
             case 2131166169 -> R.drawable.slack;
             case 2131166170 -> R.drawable.slack_color;
             case 2131166171 -> R.drawable.slack_white;

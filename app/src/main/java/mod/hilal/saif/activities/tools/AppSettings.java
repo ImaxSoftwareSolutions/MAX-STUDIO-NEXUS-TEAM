@@ -225,13 +225,13 @@ public class AppSettings extends BaseAppCompatActivity {
             String input_apk_path = Helper.getText(apk_path_txt);
             String output_apk_file_name = Uri.fromFile(new File(input_apk_path)).getLastPathSegment();
             String output_apk_path = new File(Environment.getExternalStorageDirectory(),
-                    "sketchware/signed_apk/" + output_apk_file_name).getAbsolutePath();
+                    "maxstudio/signed_apk/" + output_apk_file_name).getAbsolutePath();
 
             if (new File(output_apk_path).exists()) {
                 MaterialAlertDialogBuilder confirmOverwrite = new MaterialAlertDialogBuilder(this);
                 confirmOverwrite.setIcon(R.drawable.color_save_as_new_96);
                 confirmOverwrite.setTitle(R.string.common_word_file_exists);
-                confirmOverwrite.setMessage("An APK named " + output_apk_file_name + " already exists at /sketchware/signed_apk/.  Overwrite it?");
+                confirmOverwrite.setMessage("An APK named " + output_apk_file_name + " already exists at /maxstudio/signed_apk/.  Overwrite it?");
 
                 confirmOverwrite.setNegativeButton(R.string.common_word_cancel, null);
                 confirmOverwrite.setPositiveButton(R.string.common_word_overwrite, (view, which1) -> {
@@ -288,7 +288,7 @@ public class AppSettings extends BaseAppCompatActivity {
                 runOnUiThread(() -> {
                     if (ApkSigner.LogCallback.errorCount.get() == 0) {
                         building_dialog.dismiss();
-                        SketchwareUtil.toast("Successfully saved signed APK to: /Internal storage/sketchware/signed_apk/"
+                        SketchwareUtil.toast("Successfully saved signed APK to: /Internal storage/maxstudio/signed_apk/"
                                         + Uri.fromFile(new File(outputApkPath)).getLastPathSegment(),
                                 Toast.LENGTH_LONG);
                     } else {

@@ -23,7 +23,7 @@ import pro.sketchware.utility.GsonUtils;
  *
  * Why: older versions stored these in SharedPreferences, which get wiped
  * when the app is uninstalled. The new storage lives in
- * .sketchware/data/system/ and survives uninstall.
+ * .maxstudio/data/system/ and survives uninstall.
  *
  * HOW TO REMOVE LATER
  * -------------------

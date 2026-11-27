@@ -6,7 +6,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.ContextWrapper;
 import android.content.Intent;
-import android.net.Uri;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -14,7 +13,6 @@ import android.view.ViewGroup;
 import androidx.annotation.IdRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.annotation.StringRes;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.besome.sketch.help.ProgramInfoActivity;
@@ -28,6 +26,7 @@ import mod.hilal.saif.activities.tools.AppSettings;
 import pro.sketchware.R;
 import pro.sketchware.activities.about.AboutActivity;
 import pro.sketchware.activities.main.activities.MainActivity;
+import pro.sketchware.utility.RemoteLinks;
 import pro.sketchware.utility.UI;
 
 public class MainDrawer extends NavigationView {
@@ -55,6 +54,8 @@ public class MainDrawer extends NavigationView {
         ViewGroup headerView = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.main_drawer_header, null);
         headerView.findViewById(R.id.status_bar_overlapper).setMinimumHeight(UI.getStatusBarHeight(context));
 
+        RemoteLinks.refresh(context);
+
         addHeaderView(headerView);
         inflateMenu(R.menu.main_drawer_menu);
         setNavigationItemSelectedListener(item -> {
@@ -68,23 +69,13 @@ public class MainDrawer extends NavigationView {
 
     private void initializeSocialLinks(@IdRes int id) {
         if (!mB.a()) {
-            @StringRes int url = -1;
+            // Links are managed from the admin panel
             if (id == R.id.social_discord) {
-                url = R.string.link_discord_invite;
+                RemoteLinks.open(getContext(), RemoteLinks.DISCORD);
             } else if (id == R.id.social_telegram) {
-                url = R.string.link_telegram_invite;
+                RemoteLinks.open(getContext(), RemoteLinks.TELEGRAM);
             } else if (id == R.id.social_github) {
-                url = R.string.link_github_url;
-            } else if (id == R.id.app_sw_assist) {
-                url = R.string.link_sw_assist;
-            }
-
-            if (url != -1) {
-                String key = id == R.id.social_discord ? "discordInviteLink"
-                        : id == R.id.social_telegram ? "telegramLink"
-                        : id == R.id.social_github ? "githubLink" : null;
-                String dynamic = key == null ? null : AboutActivity.getSavedLink(getContext(), key);
-                openUrl(dynamic != null ? dynamic : getContext().getString(url));
+                RemoteLinks.open(getContext(), RemoteLinks.GITHUB);
             }
         }
     }
@@ -112,12 +103,6 @@ public class MainDrawer extends NavigationView {
             intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
             activity.startActivity(intent);
         }
-    }
-
-    private void openUrl(String url) {
-        Activity activity = unwrap(getContext());
-        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-        activity.startActivity(intent);
     }
 
     private Activity unwrap(Context context) {

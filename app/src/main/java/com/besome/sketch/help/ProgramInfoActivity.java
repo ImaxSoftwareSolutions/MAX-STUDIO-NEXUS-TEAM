@@ -18,6 +18,7 @@ import a.a.a.mB;
 import a.a.a.wB;
 import mod.hey.studios.util.Helper;
 import pro.sketchware.R;
+import pro.sketchware.utility.RemoteLinks;
 import pro.sketchware.databinding.ProgramInfoBinding;
 
 public class ProgramInfoActivity extends BaseAppCompatActivity {
@@ -119,12 +120,8 @@ public class ProgramInfoActivity extends BaseAppCompatActivity {
             if (v instanceof PropertyTwoLineItem) {
                 key = ((PropertyTwoLineItem) v).getKey();
                 switch (key) {
-                    case ITEM_DOCS_LOG -> openUrl(Helper.getResString(R.string.link_docs_url));
-                    case ITEM_SUGGEST_IDEAS ->
-                            openUrl(Helper.getResString(R.string.link_ideas_url));
-                    case ITEM_TELEGRAM ->
-                            openUrl(Helper.getResString(R.string.link_telegram_invite));
-                    case ITEM_DISCORD -> openUrl(Helper.getResString(R.string.link_discord_invite));
+                    case ITEM_TELEGRAM -> RemoteLinks.open(this, RemoteLinks.TELEGRAM);
+                    case ITEM_DISCORD -> RemoteLinks.open(this, RemoteLinks.DISCORD);
                 }
             }
         }
@@ -141,15 +138,14 @@ public class ProgramInfoActivity extends BaseAppCompatActivity {
         binding.appVersion.setText(GB.e(getApplicationContext()));
         binding.btnReset.setOnClickListener(this::resetDialog);
         binding.btnUpgrade.setOnClickListener(v -> {
-            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(Helper.getResString(R.string.link_github_release)));
-            startActivity(intent);
+            RemoteLinks.open(this, RemoteLinks.GITHUB);
         });
 
-        addTwoLineItem(ITEM_DOCS_LOG, R.string.program_information_title_docs, R.string.link_docs_url);
-        addTwoLineItem(ITEM_SUGGEST_IDEAS, R.string.program_information_title_suggest_ideas, R.string.link_ideas_url);
         addSingleLineItem(ITEM_SOCIAL_NETWORK, R.string.title_community);
-        addTwoLineItem(ITEM_DISCORD, R.string.title_discord_community, R.string.link_discord_invite);
-        addTwoLineItem(ITEM_TELEGRAM, R.string.title_telegram_community, R.string.link_telegram_invite);
+        String discordLink = RemoteLinks.get(this, RemoteLinks.DISCORD);
+        String telegramLink = RemoteLinks.get(this, RemoteLinks.TELEGRAM);
+        addTwoLineItem(ITEM_DISCORD, Helper.getResString(R.string.title_discord_community), discordLink != null ? discordLink : "");
+        addTwoLineItem(ITEM_TELEGRAM, Helper.getResString(R.string.title_telegram_community), telegramLink != null ? telegramLink : "");
         addSingleLineItem(ITEM_SYSTEM_INFORMATION, R.string.program_information_title_system_information);
         addSingleLineItem(ITEM_OPEN_SOURCE_LICENSES, R.string.program_information_title_open_source_license, true);
     }

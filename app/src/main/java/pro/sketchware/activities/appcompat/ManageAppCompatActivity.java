@@ -82,7 +82,7 @@ public class ManageAppCompatActivity extends BaseAppCompatActivity {
 
         path =
                 FileUtil.getExternalStorageDir()
-                        + "/.sketchware/data/"
+                        + "/.maxstudio/data/"
                         + sc_id
                         + "/injection/appcompat/"
                         + filename.replaceAll(".xml", "");

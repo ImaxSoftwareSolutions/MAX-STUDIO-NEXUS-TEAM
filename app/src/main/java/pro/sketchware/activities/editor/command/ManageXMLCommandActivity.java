@@ -80,7 +80,7 @@ public class ManageXMLCommandActivity extends BaseAppCompatActivity {
         for (ProjectFileBean file : files) {
             CommandBlock.CBForXml(new Jx(yq.N, file, projectDataManager).generateCode(false, sc_id));
         }
-        String commandPath = FileUtil.getExternalStorageDir().concat("/.sketchware/temp/commands");
+        String commandPath = FileUtil.getExternalStorageDir().concat("/.maxstudio/temp/commands");
         if (FileUtil.isExistFile(commandPath)) {
             FileUtil.copyFile(commandPath, path);
             CommandBlock.x();

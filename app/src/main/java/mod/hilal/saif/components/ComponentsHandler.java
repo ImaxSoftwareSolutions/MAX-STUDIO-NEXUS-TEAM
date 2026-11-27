@@ -603,7 +603,7 @@ public class ComponentsHandler {
     }
 
     public static String getPath() {
-        return FileUtil.getExternalStorageDir().concat("/.sketchware/data/system/component.json");
+        return FileUtil.getExternalStorageDir().concat("/.maxstudio/data/system/component.json");
     }
 
     /**

@@ -154,6 +154,17 @@ public class LogicEditorActivity extends BaseAppCompatActivity implements View.O
                     c(data.getStringExtra("block_name"), data.getStringExtra("block_spec"));
                 }
             });
+    private final ActivityResultLauncher<Intent> codeEditorLauncher =
+            registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
+                if (result.getResultCode() == Activity.RESULT_OK && result.getData() != null) {
+                    String code = result.getData().getStringExtra(CodeViewerActivity.EXTRA_CODE);
+                    if (code != null) {
+                        applyEditedCode(code);
+                    }
+                }
+            });
+    /** Set while the editor is being restarted so the old instance doesn't overwrite the new blocks. */
+    private boolean skipSavingBlocks = false;
     private final int[] v = new int[2];
     private final FirebaseCrashlytics crashlytics = FirebaseCrashlytics.getInstance();
     public ProjectFileBean M;
@@ -2053,6 +2064,7 @@ public class LogicEditorActivity extends BaseAppCompatActivity implements View.O
         bundle.putString("event", eventName);
         bundle.putParcelable("project_file", M);
         super.onSaveInstanceState(bundle);
+        if (skipSavingBlocks) return;
         ArrayList<BlockBean> blocks = o.getBlocks();
         eC a2 = jC.a(scId);
         String javaName = M.getJavaName();
@@ -2477,7 +2489,38 @@ public class LogicEditorActivity extends BaseAppCompatActivity implements View.O
         intent.putExtra("code", code);
         intent.putExtra("sc_id", scId);
         intent.putExtra("scheme", CodeViewerActivity.SCHEME_JAVA);
-        startActivity(intent);
+        intent.putExtra(CodeViewerActivity.EXTRA_EDITABLE, true);
+        codeEditorLauncher.launch(intent);
+    }
+
+    /**
+     * Replaces everything in this event with a single "add source directly" block that holds the edited code,
+     * then reloads the editor so the new block shows up.
+     */
+    private void applyEditedCode(String code) {
+        ArrayList<BlockBean> newBlocks = new ArrayList<>();
+        if (!code.trim().isEmpty()) {
+            int maxId = 50;
+            for (BlockBean bean : o.getBlocks()) {
+                try {
+                    maxId = Math.max(maxId, Integer.parseInt(bean.id));
+                } catch (NumberFormatException ignored) {
+                }
+            }
+            BlockBean asd = new BlockBean(String.valueOf(maxId + 1), "add source directly %s.inputOnly", " ", "", "addSourceDirectly");
+            asd.color = 0xff5cb722;
+            asd.parameters.add(code);
+            newBlocks.add(asd);
+        }
+        jC.a(scId).a(M.getJavaName(), id + "_" + eventName, newBlocks);
+        jC.a(scId).k();
+
+        skipSavingBlocks = true;
+        Intent restart = new Intent(getIntent());
+        finish();
+        overridePendingTransition(0, 0);
+        startActivity(restart);
+        overridePendingTransition(0, 0);
     }
 
     public void t() {

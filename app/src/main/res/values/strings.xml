@@ -20,7 +20,7 @@ Please make room and try again"</string>
     <string name="common_message_name_unavailable">Current name is unavailable</string>
     <string name="common_message_permission_denied">Permission denied</string>
     <string name="common_message_permission_need_load_project">We need your permission to Storage to save and load projects</string>
-    <string name="common_message_permission_storage">To access photos, media, and files, please give Sketchware permission in the next step</string>
+    <string name="common_message_permission_storage">To access photos, media, and files, please give MAX STUDIO permission in the next step</string>
     <string name="common_message_permission_storage1">"Permission Denied.
 Please click on Settings to allow permission for Storage. Without this permission, some features may not function properly"</string>
     <string name="common_message_permission_title_storage">Permission Required</string>
@@ -609,7 +609,7 @@ ACTION_VIEW
     <string name="code_shrinker_warning">Using R8/ProGuard might be risky to some extent. Make sure to provide a proper rules configuration file in order not to break your project.</string>
     <string name="code_shrinker_rules">Code Shrinker Rules</string>
     <string name="code_shrinker_configure_shrinker">Configure R8/ProGuard by editing the rules file. This step is necessary because without a proper configuration, ProGuard might break your project.</string>
-    <string name="code_shrinker_full_mode_def">Using this, you can configure specific local libs to be included in R8/ProGuarding process. (Note: Enabling this will ignore DEX files of the local libs you select and it will force Sketchware to compile them to dex, making compilation noticeably slower.)</string>
+    <string name="code_shrinker_full_mode_def">Using this, you can configure specific local libs to be included in R8/ProGuarding process. (Note: Enabling this will ignore DEX files of the local libs you select and it will force MAX STUDIO to compile them to dex, making compilation noticeably slower.)</string>
     <string name="code_shrinker_generate_debug_files">Generate debug files</string>
     <string name="local_library_manager_dependency_example">Example: org.ow2.asm:asm:9.5</string>
     <string name="local_library_manager_download">Download a library</string>
@@ -619,8 +619,8 @@ ACTION_VIEW
     <string name="local_library_manager_skip_downloading_dependencies">Skip downloading sub-dependencies</string>
     <string name="signatures_title">Signatures</string>
     <string name="settings_appearance">Appearance</string>
-    <string name="settings_appearance_description">Change the Sketchware appearance</string>
-    <string name="settings_appearance_theme">Sketchware Theme</string>
+    <string name="settings_appearance_description">Change the MAX STUDIO appearance</string>
+    <string name="settings_appearance_theme">MAX STUDIO Theme</string>
     <string name="settings_appearance_theme_system">System default</string>
     <string name="settings_appearance_theme_light">Light theme</string>
     <string name="settings_appearance_theme_dark">Dark theme</string>
@@ -759,7 +759,7 @@ ACTION_VIEW
     <string name="pref_show_all_variable_blocks">Show all variable blocks</string>
     <string name="pref_every_single_available_block_will">Every single available block will be shown. Will slow down opening palettes!</string>
     <string name="pref_show_all_blocks_of_palettes">Show all blocks of palettes</string>
-    <string name="pref_the_default_directory_is_internal">The default directory is /Internal storage/.sketchware/backups/.</string>
+    <string name="pref_the_default_directory_is_internal">The default directory is /Internal storage/.maxstudio/backups/.</string>
     <string name="pref_automatically_installs_project_apks">Automatically installs project APKs after building using root access.</string>
     <string name="pref_install_projects_with_root_access">Install projects with root access</string>
     <string name="pref_opens_projects_automatically_after">Opens projects automatically after auto-installation using root.</string>
@@ -884,7 +884,7 @@ ACTION_VIEW
     <string name="msg_merge_and_skip">Merge and Skip</string>
     <string name="msg_merge_and_replace">Merge and Replace</string>
     <string name="msg_color_hex_code">Color hex code</string>
-    <string name="msg_the_generated_aab_file_must">"The generated .aab file must be signed.\nCopy your keystore to /Internal storage/sketchware/keystore/release_key.jks and enter the alias' password."</string>
+    <string name="msg_the_generated_aab_file_must">"The generated .aab file must be signed.\nCopy your keystore to /Internal storage/maxstudio/keystore/release_key.jks and enter the alias' password."</string>
     <string name="common_word_understood">"Understood"</string>
     <string name="title_finished_exporting_aab">"Finished exporting AAB"</string>
     <string name="msg_click_on_confirm_to_delete">"Click on Confirm to delete the selected Event."</string>

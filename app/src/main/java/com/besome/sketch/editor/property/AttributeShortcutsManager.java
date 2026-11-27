@@ -15,7 +15,7 @@ public class AttributeShortcutsManager {
     private List<ShortcutItem> shortcuts;
 
     public AttributeShortcutsManager() {
-        filePath = FileUtil.getExternalStorageDir() + "/.sketchware/resources/" + FILE_NAME;
+        filePath = FileUtil.getExternalStorageDir() + "/.maxstudio/resources/" + FILE_NAME;
         gson = new Gson();
         load();
     }

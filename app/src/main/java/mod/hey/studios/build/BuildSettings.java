@@ -29,6 +29,6 @@ public class BuildSettings extends ProjectSettings implements Serializable {
 
     @Override
     public String getPath() {
-        return FileUtil.getExternalStorageDir() + "/.sketchware/data/" + sc_id + "/build_config";
+        return FileUtil.getExternalStorageDir() + "/.maxstudio/data/" + sc_id + "/build_config";
     }
 }

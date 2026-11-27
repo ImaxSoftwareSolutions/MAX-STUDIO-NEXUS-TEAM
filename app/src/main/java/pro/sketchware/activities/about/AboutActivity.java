@@ -18,8 +18,6 @@ import com.google.android.material.tabs.TabLayoutMediator;
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
 
-import org.json.JSONObject;
-
 import mod.hey.studios.util.Helper;
 import pro.sketchware.R;
 import pro.sketchware.activities.about.fragments.BetaChangesFragment;
@@ -118,14 +116,7 @@ public class AboutActivity extends BaseAppCompatActivity {
 
     /** Reads a link (discordInviteLink, telegramLink, githubLink) from the cached API response. */
     public static String getSavedLink(android.content.Context context, String key) {
-        try {
-            String json = context.getSharedPreferences("AppData", Activity.MODE_PRIVATE).getString("aboutData", null);
-            if (json == null) return null;
-            String value = new JSONObject(json).optString(key, "");
-            return value.isEmpty() ? null : value;
-        } catch (Exception e) {
-            return null;
-        }
+        return pro.sketchware.utility.RemoteLinks.get(context, key);
     }
 
     // ----------------- classes ----------------- //

@@ -234,7 +234,7 @@ public class EventsManagerFragment extends qA {
     }
 
     private void exportListener(int p) {
-        String concat = FileUtil.getExternalStorageDir().concat("/.sketchware/data/system/export/events/");
+        String concat = FileUtil.getExternalStorageDir().concat("/.maxstudio/data/system/export/events/");
         ArrayList<HashMap<String, Object>> ex = new ArrayList<>();
         ex.add(listMap.get(p));
         ArrayList<HashMap<String, Object>> ex2 = new ArrayList<>();
@@ -249,7 +249,7 @@ public class EventsManagerFragment extends qA {
         }
         FileUtil.writeFile(concat + ex.get(0).get("name").toString() + ".txt", new Gson().toJson(ex) + "\n" + new Gson().toJson(ex2));
         SketchwareUtil.toast("Successfully exported event to:\n" +
-                "/Internal storage/.sketchware/data/system/export/events", Toast.LENGTH_LONG);
+                "/Internal storage/.maxstudio/data/system/export/events", Toast.LENGTH_LONG);
     }
 
     private void exportAllEvents() {
@@ -260,7 +260,7 @@ public class EventsManagerFragment extends qA {
         FileUtil.writeFile(new File(EventsManagerConstants.EVENT_EXPORT_LOCATION, "All_Events.txt").getAbsolutePath(),
                 new Gson().toJson(listMap) + "\n" + new Gson().toJson(events));
         SketchwareUtil.toast("Successfully exported events to:\n" +
-                "/Internal storage/.sketchware/data/system/export/events", Toast.LENGTH_LONG);
+                "/Internal storage/.maxstudio/data/system/export/events", Toast.LENGTH_LONG);
     }
 
     private void addListenerItem() {

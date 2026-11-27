@@ -19,15 +19,6 @@
         android:id="@+id/app_settings"
         android:icon="@drawable/ic_mtrl_settings"
         android:title="@string/common_word_settings" />
-    <item android:title="@string/common_word_apps">
-        <menu>
-            <item
-                android:id="@+id/app_sw_assist"
-                android:icon="@drawable/swassist_logo"
-                android:title="@string/common_word_swassist" />
-        </menu>
-    </item>
-
     <item android:title="@string/common_word_related_links">
         <menu>
             <item

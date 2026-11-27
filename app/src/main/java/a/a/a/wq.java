@@ -9,30 +9,30 @@ import pro.sketchware.SketchApplication;
 
 public class wq {
 
-    public static final String A = "sketchware" + File.separator + "localization" + File.separator + "strings_provided.xml";
-    public static final String B = "sketchware" + File.separator + "signed_apk";
-    public static final String C = "sketchware" + File.separator + "keystore";
-    public static final String D = "sketchware" + File.separator + "keystore" + File.separator + "release_key.jks";
-    public static final String a = ".sketchware" + File.separator + "libs";
-    public static final String b = ".sketchware" + File.separator + "mysc";
-    public static final String c = ".sketchware" + File.separator + "mysc" + File.separator + "list";
-    public static final String d = ".sketchware" + File.separator + "data";
-    public static final String e = ".sketchware" + File.separator + "bak";
-    public static final String f = ".sketchware" + File.separator + "temp" + File.separator + "images";
-    public static final String g = ".sketchware" + File.separator + "temp" + File.separator + "sounds";
-    public static final String h = ".sketchware" + File.separator + "temp" + File.separator + "fonts";
-    public static final String i = ".sketchware" + File.separator + "temp" + File.separator + "proj";
-    public static final String j = ".sketchware" + File.separator + "temp" + File.separator + "data";
-    public static final String l = ".sketchware" + File.separator + "resources";
-    public static final String m = ".sketchware" + File.separator + "resources" + File.separator + "icons";
-    public static final String n = ".sketchware" + File.separator + "resources" + File.separator + "images";
-    public static final String o = ".sketchware" + File.separator + "resources" + File.separator + "sounds";
-    public static final String p = ".sketchware" + File.separator + "resources" + File.separator + "fonts";
-    public static final String x = ".sketchware" + File.separator + "collection";
-    public static final String y = "sketchware" + File.separator + "localization";
-    public static final String z = "sketchware" + File.separator + "localization" + File.separator + "strings.xml";
+    public static final String A = "maxstudio" + File.separator + "localization" + File.separator + "strings_provided.xml";
+    public static final String B = "maxstudio" + File.separator + "signed_apk";
+    public static final String C = "maxstudio" + File.separator + "keystore";
+    public static final String D = "maxstudio" + File.separator + "keystore" + File.separator + "release_key.jks";
+    public static final String a = ".maxstudio" + File.separator + "libs";
+    public static final String b = ".maxstudio" + File.separator + "mysc";
+    public static final String c = ".maxstudio" + File.separator + "mysc" + File.separator + "list";
+    public static final String d = ".maxstudio" + File.separator + "data";
+    public static final String e = ".maxstudio" + File.separator + "bak";
+    public static final String f = ".maxstudio" + File.separator + "temp" + File.separator + "images";
+    public static final String g = ".maxstudio" + File.separator + "temp" + File.separator + "sounds";
+    public static final String h = ".maxstudio" + File.separator + "temp" + File.separator + "fonts";
+    public static final String i = ".maxstudio" + File.separator + "temp" + File.separator + "proj";
+    public static final String j = ".maxstudio" + File.separator + "temp" + File.separator + "data";
+    public static final String l = ".maxstudio" + File.separator + "resources";
+    public static final String m = ".maxstudio" + File.separator + "resources" + File.separator + "icons";
+    public static final String n = ".maxstudio" + File.separator + "resources" + File.separator + "images";
+    public static final String o = ".maxstudio" + File.separator + "resources" + File.separator + "sounds";
+    public static final String p = ".maxstudio" + File.separator + "resources" + File.separator + "fonts";
+    public static final String x = ".maxstudio" + File.separator + "collection";
+    public static final String y = "maxstudio" + File.separator + "localization";
+    public static final String z = "maxstudio" + File.separator + "localization" + File.separator + "strings.xml";
 
-    public static final String EXTRA_SYSTEM_DATA = ".sketchware" + File.separator + "data" + File.separator + "system";
+    public static final String EXTRA_SYSTEM_DATA = ".maxstudio" + File.separator + "data" + File.separator + "system";
     public static final String CUSTOM_COMPONENT_FILE = EXTRA_SYSTEM_DATA + File.separator + "component.json";
     public static final String CUSTOM_COLORS_FILE = EXTRA_SYSTEM_DATA + File.separator + "custom_colors.json";
     public static final String EXTRA_DATA_EXPORT = EXTRA_SYSTEM_DATA + File.separator + "export";
@@ -128,7 +128,7 @@ public class wq {
     }
 
     public static String c() {
-        return getAbsolutePathOf(".sketchware" + File.separator + "download");
+        return getAbsolutePathOf(".maxstudio" + File.separator + "download");
     }
 
     public static String c(String sc_id) {
@@ -189,7 +189,7 @@ public class wq {
     }
 
     public static String q() {
-        return getAbsolutePathOf(".sketchware" + File.separator);
+        return getAbsolutePathOf(".maxstudio" + File.separator);
     }
 
     public static String r() {
@@ -197,7 +197,7 @@ public class wq {
     }
 
     public static String s() {
-        return getAbsolutePathOf("sketchware");
+        return getAbsolutePathOf("maxstudio");
     }
 
     public static String t() {
